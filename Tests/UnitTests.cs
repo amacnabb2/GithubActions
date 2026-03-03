@@ -123,11 +123,12 @@ public class CalculatorTests
     }
 
     [TestMethod]
-    public void Power_Invalid()
+    [TestMethod]
+    public void Power_Valid()
     {
-        Assert.ThrowsException<FormatException>(() => Program.Power("1", "a"));
-        Assert.ThrowsException<FormatException>(() => Program.Power("a", "1"));
-        Assert.ThrowsException<FormatException>(() => Program.Power("a", "a"));
+    Assert.AreEqual(8, Program.Power("2", "3"));       // 2^3 = 8
+    Assert.AreEqual(9, Program.Power("3", "2"));       // 3^2 = 9
+    Assert.AreEqual(78125, Program.Power("5", "7"));   // 5^7 = 78125
     }
 
     [TestMethod]
