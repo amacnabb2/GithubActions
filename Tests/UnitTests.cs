@@ -114,15 +114,7 @@ public class CalculatorTests
     // ==========================
     // POWER TESTS
     // ==========================
-    [TestMethod]
-    public void Power_Valid()
-    {
-        Assert.AreEqual(1, Program.Power("1", "2"));  // note: ^ operator is bitwise XOR, not power
-        Assert.AreEqual(1, Program.Power("3", "2"));
-        Assert.AreEqual(2, Program.Power("5", "7"));
-    }
 
-    [TestMethod]
     [TestMethod]
     public void Power_Valid()
     {
