@@ -85,7 +85,36 @@ public class Program
 
 	// Implement this method following a similar pattern as above
 	public static double Power(string x, string y)
-	{
-		return double.Parse(x) ^ double.Parse(y);
-	}
+{
+    if (x == null || y == null)
+        throw new ArgumentNullException();
+
+    double baseVal = double.Parse(x);
+    double exponent = double.Parse(y);
+
+    // Handle exponent == 0
+    if (exponent == 0) return 1;
+
+    // Only integer exponents for simple manual calculation
+    if (exponent % 1 != 0)
+        throw new ArgumentException("Manual Power supports only integer exponents.");
+
+    double result = 1;
+    int exp = (int)exponent;
+
+    bool negative = false;
+    if (exp < 0)
+    {
+        negative = true;
+        exp = -exp;
+    }
+
+    for (int i = 0; i < exp; i++)
+        result *= baseVal;
+
+    if (negative)
+        result = 1 / result;
+
+    return result;
+}
 }
